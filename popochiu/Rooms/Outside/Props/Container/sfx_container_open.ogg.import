@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_container_open.ogg-ed1f946e44aadf027acb1c4460661445.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Rooms/Outside/Props/Container/sfx_container_open.ogg"
+dest_files=[ "res://.import/sfx_container_open.ogg-ed1f946e44aadf027acb1c4460661445.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

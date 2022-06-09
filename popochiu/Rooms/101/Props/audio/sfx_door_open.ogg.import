@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_door_open.ogg-1c8856529ba738fbad326ddfe4b281df.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Rooms/101/Props/audio/sfx_door_open.ogg"
+dest_files=[ "res://.import/sfx_door_open.ogg-1c8856529ba738fbad326ddfe4b281df.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

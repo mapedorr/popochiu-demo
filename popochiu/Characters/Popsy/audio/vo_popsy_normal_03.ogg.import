@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vo_popsy_normal_03.ogg-d831e039f70e2ff1f3a4d0680fcae64c.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Characters/Popsy/audio/vo_popsy_normal_03.ogg"
+dest_files=[ "res://.import/vo_popsy_normal_03.ogg-d831e039f70e2ff1f3a4d0680fcae64c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

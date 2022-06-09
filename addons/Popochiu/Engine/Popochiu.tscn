@@ -1,0 +1,59 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://addons/Popochiu/Engine/Objects/TransitionLayer/TransitionLayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/GraphicInterface/GraphicInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/Popochiu/Engine/Popochiu.gd" type="Script" id=3]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/TransitionLayer/TransitionLayer.gd" type="Script" id=4]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/GraphicInterface/GraphicInterface.gd" type="Script" id=5]
+[ext_resource path="res://popochiu/Rooms/101/Room101.tres" type="Resource" id=6]
+[ext_resource path="res://popochiu/Characters/Goddiu/CharacterGoddiu.tres" type="Resource" id=7]
+[ext_resource path="res://popochiu/InventoryItems/ToyCar/InventoryToyCar.tres" type="Resource" id=8]
+[ext_resource path="res://popochiu/Characters/Popsy/CharacterPopsy.tres" type="Resource" id=9]
+[ext_resource path="res://popochiu/Dialogs/ChatWithPopsy/DialogChatWithPopsy.tres" type="Resource" id=10]
+[ext_resource path="res://popochiu/Rooms/Outside/RoomOutside.tres" type="Resource" id=11]
+[ext_resource path="res://popochiu/InventoryItems/Blanket/InventoryBlanket.tres" type="Resource" id=12]
+[ext_resource path="res://popochiu/InventoryItems/Key/InventoryKey.tres" type="Resource" id=13]
+[ext_resource path="res://popochiu/InventoryItems/Hook/InventoryHook.tres" type="Resource" id=14]
+[ext_resource path="res://popochiu/InventoryItems/Apple/InventoryApple.tres" type="Resource" id=15]
+[ext_resource path="res://popochiu/Rooms/End/RoomEnd.tres" type="Resource" id=16]
+
+[node name="Popochiu" type="Node"]
+script = ExtResource( 3 )
+rooms = [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 16 ) ]
+characters = [ ExtResource( 7 ), ExtResource( 9 ) ]
+inventory_items = [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+dialogs = [ ExtResource( 10 ) ]
+skip_cutscene_time = 0.25
+text_speeds = [ 0.05, 0.01, 0.0 ]
+items_on_start = [ "Apple" ]
+inventory_limit = 3
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+current = true
+limit_left = -160
+limit_top = -90
+limit_right = 160
+limit_bottom = 90
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.25
+drag_margin_top = 0.1
+drag_margin_right = 0.25
+drag_margin_bottom = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="GraphicInterface" type="CanvasLayer" parent="." instance=ExtResource( 2 )]
+layer = 10
+script = ExtResource( 5 )
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." instance=ExtResource( 1 )]
+layer = 15
+script = ExtResource( 4 )
+fade_color = Color( 0.0808421, 0.075943, 0.0820313, 1 )

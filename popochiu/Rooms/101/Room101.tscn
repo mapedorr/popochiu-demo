@@ -1,0 +1,174 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://popochiu/Rooms/101/Room101.gd" type="Script" id=1]
+[ext_resource path="res://popochiu/Rooms/101/Props/ToyCar/PropToyCar.gd" type="Script" id=2]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://popochiu/Rooms/101/Props/sprites/background.png" type="Texture" id=4]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Hotspot/PopochiuHotspot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://popochiu/Rooms/101/Hotspots/Door/HotspotDoor.gd" type="Script" id=6]
+[ext_resource path="res://popochiu/Rooms/101/Hotspots/Window/HotspotWindow.gd" type="Script" id=7]
+[ext_resource path="res://popochiu/Rooms/101/Hotspots/Photo/HotspotPhoto.gd" type="Script" id=8]
+[ext_resource path="res://popochiu/Characters/Goddiu/CharacterGoddiu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://popochiu/Rooms/101/Props/ToyCar/toy_car.png" type="Texture" id=10]
+[ext_resource path="res://popochiu/Characters/Popsy/CharacterPopsy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://popochiu/Rooms/101/Props/Drawer/PropDrawer.gd" type="Script" id=12]
+[ext_resource path="res://popochiu/Rooms/101/Props/Drawer/drawer.png" type="Texture" id=13]
+[ext_resource path="res://popochiu/Rooms/101/Props/Blanket/PropBlanket.gd" type="Script" id=14]
+[ext_resource path="res://popochiu/Rooms/101/Props/Blanket/blanket.png" type="Texture" id=15]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( -105, 34, -91, 17, -62, 10, 17, 9, 73, 11, 90, 18, 106, 34, 108, 50, 92, 64, 34, 70, -40, 70, -83, 63, -105, 49 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ) ]
+outlines = [ PoolVector2Array( -105, 34, -91, 17, -62, 10, 17, 9, 73, 11, 90, 18, 106, 34, 108, 50, 92, 64, 34, 70, -40, 70, -83, 63, -105, 49 ) ]
+
+[node name="Room101" type="Node2D"]
+script = ExtResource( 1 )
+script_name = "101"
+limit_left = 0.0
+limit_right = 0.0
+limit_top = 0.0
+limit_bottom = 0.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource( 3 )]
+description = "Background"
+clickable = false
+cursor = 1
+script_name = "Background"
+texture = ExtResource( 4 )
+
+[node name="ToyCar" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( -51, 49 )
+script = ExtResource( 2 )
+description = "Toy car"
+walk_to_point = Vector2( 12, -7 )
+cursor = 1
+script_name = "ToyCar"
+texture = ExtResource( 10 )
+
+[node name="BaselineHelper" parent="Props/ToyCar" index="0"]
+visible = false
+
+[node name="WalkToHelper" parent="Props/ToyCar" index="1"]
+visible = false
+position = Vector2( 12, -7 )
+
+[node name="Sprite" parent="Props/ToyCar" index="2"]
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/ToyCar"]
+polygon = PoolVector2Array( -7, 2, -6, -1, -2, -4, 2, -4, 7, 0, 4, 3 )
+
+[node name="Drawer" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( -97, 17 )
+script = ExtResource( 12 )
+description = "Drawer"
+baseline = 3
+walk_to_point = Vector2( 24, 0 )
+cursor = 1
+script_name = "Drawer"
+texture = ExtResource( 13 )
+
+[node name="BaselineHelper" parent="Props/Drawer" index="0"]
+visible = false
+position = Vector2( 0, 3 )
+
+[node name="WalkToHelper" parent="Props/Drawer" index="1"]
+visible = false
+position = Vector2( 24, 0 )
+
+[node name="Sprite" parent="Props/Drawer" index="2"]
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/Drawer"]
+polygon = PoolVector2Array( -13, 14, -12, -6, -6, -16, 8, -15, 9, 2, 2, 15 )
+
+[node name="Blanket" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( -21, 57 )
+script = ExtResource( 14 )
+description = "Blanket"
+walk_to_point = Vector2( -10, -11 )
+cursor = 1
+script_name = "Blanket"
+texture = ExtResource( 15 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/Blanket"]
+polygon = PoolVector2Array( -9, 3, -9, -4, -8, -5, 2, -6, 10, -3, 9, 4, -1, 5, -6, 4 )
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Door" parent="Hotspots" instance=ExtResource( 5 )]
+position = Vector2( -62, -13 )
+script = ExtResource( 6 )
+description = "Door"
+walk_to_point = Vector2( 16, 24 )
+cursor = 1
+script_name = "Door"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotspots/Door"]
+polygon = PoolVector2Array( -17, 22, -19, -3, -14, -23, -6, -28, 7, -26, 17, -16, 18, 17 )
+
+[node name="Window" parent="Hotspots" instance=ExtResource( 5 )]
+position = Vector2( -8, -29 )
+script = ExtResource( 7 )
+description = "Window"
+walk_to_point = Vector2( 16, 42 )
+cursor = 1
+script_name = "Window"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotspots/Window"]
+polygon = PoolVector2Array( -24, -3, -22, -9, -17, -17, -5, -21, 7, -20, 17, -16, 21, -6, 21, 8, 12, 18, -1, 19, -13, 16, -23, 8 )
+
+[node name="Photo" parent="Hotspots" instance=ExtResource( 5 )]
+position = Vector2( 45, -27 )
+script = ExtResource( 8 )
+description = "Photo of some Popochius"
+walk_to_point = Vector2( -24, 41 )
+cursor = 1
+script_name = "Photo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotspots/Photo"]
+polygon = PoolVector2Array( -13, 6, -12, -11, 12, -10, 11, 7 )
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Navigation2D" type="Navigation2D" parent="WalkableAreas"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableAreas/Navigation2D"]
+visible = false
+navpoly = SubResource( 1 )
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterGoddiu" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( -41, 37 )
+voices = [ {
+"cue": "vo_goddiu",
+"emotion": "",
+"variations": 3
+} ]
+
+[node name="CharacterPopsy" parent="Characters" instance=ExtResource( 11 )]
+position = Vector2( 44, 36 )
+voices = [ {
+"cue": "vo_popsy_normal",
+"emotion": "",
+"variations": 3
+}, {
+"cue": "vo_popsy_sad",
+"emotion": "sad",
+"variations": 3
+}, {
+"cue": "vo_popsy_happy",
+"emotion": "happy",
+"variations": 3
+} ]
+
+[editable path="Props/ToyCar"]
+[editable path="Props/Drawer"]

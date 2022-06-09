@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://popochiu/Rooms/End/RoomEnd.gd" type="Script" id=1]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/GraphicInterface/Resources/DynamicFonts/MonkeyIsland-16.tres" type="DynamicFont" id=2]
+
+[node name="RoomEnd" type="Node2D"]
+script = ExtResource( 1 )
+script_name = "End"
+has_player = false
+limit_left = 0.0
+limit_right = 0.0
+limit_top = 0.0
+limit_bottom = 0.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Navigation2D" type="Navigation2D" parent="WalkableAreas"]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer"]
+margin_left = 137.0
+margin_top = 84.0
+margin_right = 183.0
+margin_bottom = 96.0
+
+[node name="The" type="Label" parent="CanvasLayer/CenterContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 21.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 2 )
+text = "THE"
+
+[node name="End" type="Label" parent="CanvasLayer/CenterContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 25.0
+margin_right = 46.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 2 )
+text = "END"

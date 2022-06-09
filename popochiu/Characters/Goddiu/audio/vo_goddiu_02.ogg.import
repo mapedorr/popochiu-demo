@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vo_goddiu_02.ogg-6f6a1726ded4369e311371bb1f2e28ea.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Characters/Goddiu/audio/vo_goddiu_02.ogg"
+dest_files=[ "res://.import/vo_goddiu_02.ogg-6f6a1726ded4369e311371bb1f2e28ea.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_outside.ogg-9e016919de69785b903a72923fae6342.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Rooms/Outside/Props/sfx_outside.ogg"
+dest_files=[ "res://.import/sfx_outside.ogg-9e016919de69785b903a72923fae6342.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

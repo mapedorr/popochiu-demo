@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://popochiu/Dialogs/ChatWithPopsy/DialogChatWithPopsy.gd" type="Script" id=1]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Dialog/PopochiuDialogOption.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Opt1"
+script = ExtResource( 2 )
+id = "Opt1"
+text = "How are you?"
+visible = true
+
+[sub_resource type="Resource" id=2]
+resource_name = "Opt2"
+script = ExtResource( 2 )
+id = "Opt2"
+text = "Why are you crying?"
+visible = false
+
+[sub_resource type="Resource" id=4]
+resource_name = "Opt3"
+script = ExtResource( 2 )
+id = "Opt3"
+text = "Still hungry?"
+visible = false
+
+[sub_resource type="Resource" id=3]
+resource_name = "Exit"
+script = ExtResource( 2 )
+id = "Exit"
+text = "Bye! bye!"
+visible = true
+
+[resource]
+resource_name = "ChatWithPopsy"
+script = ExtResource( 1 )
+options = [ SubResource( 1 ), SubResource( 2 ), SubResource( 4 ), SubResource( 3 ) ]
+script_name = "ChatWithPopsy"

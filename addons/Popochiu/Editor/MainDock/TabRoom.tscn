@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/Popochiu/Editor/MainDock/TabRoom.gd" type="Script" id=1]
+[ext_resource path="res://addons/Popochiu/Editor/MainDock/PopochiuGroup/PopochiuGroup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/Popochiu/icons/region.png" type="Texture" id=3]
+[ext_resource path="res://addons/Popochiu/icons/point.png" type="Texture" id=4]
+[ext_resource path="res://addons/Popochiu/icons/hotspot.png" type="Texture" id=5]
+[ext_resource path="res://addons/Popochiu/icons/prop.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=22]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.439216, 0.427451, 0.921569, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.768627, 0.423529, 0.443137, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="TabRoom" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_tab_disabled": false
+}
+
+[node name="RoomName" type="Label" parent="."]
+visible = false
+margin_right = 304.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/normal = SubResource( 22 )
+text = "Room name"
+align = 1
+
+[node name="RoomScrollContainer" type="ScrollContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomScrollContainer"]
+margin_right = 320.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+
+[node name="NoRoomInfo" type="Label" parent="RoomScrollContainer/VBoxContainer"]
+visible = false
+margin_right = 304.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 0.768627, 0.423529, 0.443137, 1 )
+custom_styles/normal = SubResource( 5 )
+text = "Open a room in Main tab to see or create Props, Hotspots, Regions and Points."
+autowrap = true
+
+[node name="PropsGroup" parent="RoomScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+custom_styles/panel = SubResource( 1 )
+icon = ExtResource( 6 )
+title = "Props"
+create_text = "Create prop"
+
+[node name="HotspotsGroup" parent="RoomScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 28.0
+margin_bottom = 52.0
+custom_styles/panel = SubResource( 1 )
+icon = ExtResource( 5 )
+title = "Hotspots"
+create_text = "Create hotspot"
+
+[node name="RegionsGroup" parent="RoomScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 56.0
+margin_bottom = 80.0
+custom_styles/panel = SubResource( 1 )
+icon = ExtResource( 3 )
+title = "Regions"
+create_text = "Create region"
+
+[node name="PointsGroup" parent="RoomScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 84.0
+margin_bottom = 108.0
+custom_styles/panel = SubResource( 1 )
+icon = ExtResource( 4 )
+title = "Points"
+can_create = false
+create_text = "Create point"

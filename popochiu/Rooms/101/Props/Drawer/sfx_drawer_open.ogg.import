@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_drawer_open.ogg-221b32125946992a6afdba2605145e95.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Rooms/101/Props/Drawer/sfx_drawer_open.ogg"
+dest_files=[ "res://.import/sfx_drawer_open.ogg-221b32125946992a6afdba2605145e95.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://popochiu/Rooms/Outside/RoomOutside.gd" type="Script" id=1]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Tree/PropTree.gd" type="Script" id=2]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/background.png" type="Texture" id=4]
+[ext_resource path="res://popochiu/Characters/Goddiu/CharacterGoddiu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Tree/tree.png" type="Texture" id=6]
+[ext_resource path="res://popochiu/Rooms/Outside/Hotspots/HouseDoor/HotspotHouseDoor.gd" type="Script" id=7]
+[ext_resource path="res://addons/Popochiu/Engine/Objects/Hotspot/PopochiuHotspot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Apple/PropApple.gd" type="Script" id=9]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Apple/fruit.png" type="Texture" id=10]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Container/PropContainer.gd" type="Script" id=11]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Container/container.png" type="Texture" id=12]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Hook/PropHook.gd" type="Script" id=13]
+[ext_resource path="res://popochiu/Rooms/Outside/Props/Hook/hook.png" type="Texture" id=14]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 105, 13, 107, 36, -141, 50, -125, 35, 20, 14, -118, 7, -2, 8, -136, 25, 219, 72, 219, 85, -216, 83, 125, 43, -185, 48, -214, 32, -194, 31, -186, 35, -166, 27 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 4, 3, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 1, 11, 10, 2 ), PoolIntArray( 12, 10, 13, 14, 15 ), PoolIntArray( 12, 2, 10 ), PoolIntArray( 15, 14, 5, 16 ), PoolIntArray( 16, 5, 7 ) ]
+outlines = [ PoolVector2Array( 219, 72, 219, 85, -216, 83, -214, 32, -194, 31, -118, 7, -2, 8, 20, 14, 105, 13, 107, 36, 125, 43 ), PoolVector2Array( -166, 27, -186, 35, -185, 48, -141, 50, -125, 35, -136, 25 ) ]
+
+[node name="RoomOutside" type="Node2D"]
+script = ExtResource( 1 )
+script_name = "Outside"
+limit_left = -224.0
+limit_right = 224.0
+limit_top = 0.0
+limit_bottom = 0.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource( 3 )]
+description = "Background"
+clickable = false
+cursor = 1
+script_name = "Background"
+texture = ExtResource( 4 )
+
+[node name="Tree" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( -155, -14 )
+script = ExtResource( 2 )
+description = "Tree"
+baseline = 47
+cursor = 1
+script_name = "Tree"
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/Tree"]
+polygon = PoolVector2Array( -3, 50, -2, -5, -17, -4, -29, -9, -33, -22, -30, -35, -21, -41, -20, -50, -17, -54, -7, -55, 3, -57, 13, -55, 16, -49, 23, -49, 28, -41, 27, -31, 33, -27, 33, -17, 22, -12, 15, -11, 15, -6, 9, -3, 12, 50, 7, 53, 2, 53 )
+
+[node name="Apple" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( -173, -47 )
+script = ExtResource( 9 )
+description = "Apple"
+baseline = 80
+walk_to_point = Vector2( 26, 107 )
+cursor = 1
+script_name = "Apple"
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/Apple"]
+polygon = PoolVector2Array( -4, -4, -2, -1, -4, 0, -4, 3, -2, 5, 1, 5, 3, 3, 3, 0, 1, -2, 2, -3, 2, -6, -1, -4 )
+
+[node name="Container" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( 120, 9 )
+script = ExtResource( 11 )
+description = "Container"
+baseline = 22
+walk_to_point = Vector2( -25, 28 )
+cursor = 1
+script_name = "Container"
+texture = ExtResource( 12 )
+
+[node name="BaselineHelper" parent="Props/Container" index="0"]
+visible = false
+position = Vector2( 0, 22 )
+
+[node name="WalkToHelper" parent="Props/Container" index="1"]
+visible = false
+position = Vector2( -25, 28 )
+
+[node name="Sprite" parent="Props/Container" index="2"]
+texture = ExtResource( 12 )
+hframes = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/Container"]
+polygon = PoolVector2Array( -6, 22, -6, 0, -8, 0, -8, -3, 11, -15, 11, 28 )
+
+[node name="Hook" parent="Props" instance=ExtResource( 3 )]
+position = Vector2( 127, 2 )
+script = ExtResource( 13 )
+description = "Hook"
+baseline = 29
+walk_to_point = Vector2( -32, 35 )
+cursor = 1
+script_name = "Hook"
+texture = ExtResource( 14 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Props/Hook"]
+polygon = PoolVector2Array( 0, 7, -3, 0, -3, -6, -1, -8, 2, -8, 2, -5, 0, -3, 3, 7 )
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="HouseDoor" parent="Hotspots" instance=ExtResource( 8 )]
+position = Vector2( 182, 33 )
+script = ExtResource( 7 )
+description = "HouseDoor"
+walk_to_point = Vector2( -33, 25 )
+cursor = 1
+script_name = "HouseDoor"
+
+[node name="WalkToHelper" parent="Hotspots/HouseDoor" index="1"]
+position = Vector2( -33, 25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotspots/HouseDoor"]
+polygon = PoolVector2Array( -16, 16, -15, -16, -9, -24, 0, -27, 7, -24, 12, -15, 15, -2, 14, 14, 13, 24 )
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Navigation2D" type="Navigation2D" parent="WalkableAreas"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableAreas/Navigation2D"]
+navpoly = SubResource( 1 )
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterGoddiu" parent="Characters" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 124, 58 )
+voices = [ {
+"cue": "vo_goddiu",
+"emotion": "",
+"variations": 3
+} ]
+
+[editable path="Props/Container"]
+[editable path="Hotspots/HouseDoor"]

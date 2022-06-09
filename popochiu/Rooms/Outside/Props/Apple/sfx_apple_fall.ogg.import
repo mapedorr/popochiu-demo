@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_apple_fall.ogg-eaa932ddb1b08ade0d0e1aa6a639f0d0.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Rooms/Outside/Props/Apple/sfx_apple_fall.ogg"
+dest_files=[ "res://.import/sfx_apple_fall.ogg-eaa932ddb1b08ade0d0e1aa6a639f0d0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
